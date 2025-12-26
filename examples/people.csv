@@ -1,0 +1,6 @@
+id,name,email,role,department
+alice,Alice Smith,alice@example.org,Engineer,Engineering
+bob,Bob Jones,bob@example.org,Manager,Engineering
+carol,Carol White,carol@example.org,Designer,Design
+dan,Dan Brown,dan@example.org,Engineer,Engineering
+eve,Eve Davis,eve@example.org,Director,Executive

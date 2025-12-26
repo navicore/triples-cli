@@ -1,0 +1,16 @@
+@prefix org: <http://example.org/org#> .
+@prefix people: <http://example.org/people#> .
+
+people:alice org:reportsTo people:bob ;
+    org:worksIn org:Engineering .
+
+people:bob org:reportsTo people:eve ;
+    org:worksIn org:Engineering .
+
+people:carol org:reportsTo people:eve ;
+    org:worksIn org:Design .
+
+people:dan org:reportsTo people:bob ;
+    org:worksIn org:Engineering .
+
+people:eve org:worksIn org:Executive .

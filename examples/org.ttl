@@ -1,0 +1,14 @@
+@prefix org: <http://example.org/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+org:Engineering rdf:type org:Department ;
+    org:name "Engineering" ;
+    org:budget "500000" .
+
+org:Design rdf:type org:Department ;
+    org:name "Design" ;
+    org:budget "200000" .
+
+org:Executive rdf:type org:Department ;
+    org:name "Executive" ;
+    org:budget "300000" .

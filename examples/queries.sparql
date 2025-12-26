@@ -1,0 +1,51 @@
+# Sample SPARQL Queries for triples-cli
+# ======================================
+# Use these with: cat data.ttl | triples-cli query -q "..."
+
+# List all triples (useful for exploration)
+SELECT * WHERE { ?s ?p ?o } LIMIT 20
+
+# Count total triples
+SELECT (COUNT(*) as ?count) WHERE { ?s ?p ?o }
+
+# Find all subjects of a specific type
+SELECT ?subject WHERE {
+    ?subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?type
+}
+
+# Find all predicates used in the graph
+SELECT DISTINCT ?predicate WHERE { ?s ?predicate ?o }
+
+# Find all objects for a specific predicate
+SELECT ?subject ?object WHERE {
+    ?subject <http://example.org/org#name> ?object
+}
+
+# Pattern matching with multiple conditions
+SELECT ?person ?dept WHERE {
+    ?person <http://example.org/org#worksIn> ?dept .
+    ?person <http://example.org/org#reportsTo> ?manager
+}
+
+# Find transitive relationships (who works in Engineering)
+SELECT ?person WHERE {
+    ?person <http://example.org/org#worksIn> <http://example.org/org#Engineering>
+}
+
+# OPTIONAL - include results even if pattern doesn't match
+SELECT ?person ?manager WHERE {
+    ?person <http://example.org/org#worksIn> ?dept .
+    OPTIONAL { ?person <http://example.org/org#reportsTo> ?manager }
+}
+
+# FILTER - add conditions
+SELECT ?dept ?budget WHERE {
+    ?dept <http://example.org/org#budget> ?budget
+    FILTER (?budget > "200000")
+}
+
+# String matching with FILTER
+SELECT ?person WHERE {
+    ?person <http://example.org/people#name> ?name
+    FILTER (CONTAINS(?name, "Smith"))
+}
